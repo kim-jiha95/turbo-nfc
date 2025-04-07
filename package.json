@@ -1,0 +1,77 @@
+{
+  "name": "turbo-nfc",
+  "version": "1.0.0",
+  "description": "React Native TurboModule for NFC functionality",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "spec/index",
+  "source": "spec/index",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "spec",
+    "turbo-nfc.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "scripts": {
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "npm publish"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "nfc",
+    "turbomodule"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourname/turbo-nfc.git"
+  },
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourname/turbo-nfc/issues"
+  },
+  "homepage": "https://github.com/yourname/turbo-nfc#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.70.0",
+    "react": "^18.0.0",
+    "react-native": "^0.72.0",
+    "react-native-builder-bob": "^0.20.0",
+    "typescript": "^4.9.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "TurboNfcSpec",
+    "type": "all",
+    "jsSrcsDir": "spec"
+  },
+  "react-native-builder-bob": {
+    "source": "spec",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  }
+}
