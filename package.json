@@ -1,6 +1,6 @@
 {
-  "name": "turbo-nfc",
-  "version": "1.0.0",
+  "name": "turbo-nfc-dubu",
+  "version": "1.0.1",
   "description": "React Native TurboModule for NFC functionality",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -26,7 +26,8 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
-    "release": "npm publish"
+    "release": "npm publish",
+    "build": "bob build"
   },
   "keywords": [
     "react-native",
@@ -37,14 +38,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourname/turbo-nfc.git"
+    "url": "git+https://github.com/kim-jiha95/turbo-nfc.git"
   },
   "author": "Your Name <your.email@example.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourname/turbo-nfc/issues"
+    "url": "https://github.com/kim-jiha95/turbo-nfc/issues"
   },
-  "homepage": "https://github.com/yourname/turbo-nfc#readme",
+  "homepage": "https://github.com/kim-jiha95/turbo-nfc#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { TurboNfc } from 'turbo-nfc';
+import React, { useEffect, useState } from "react";
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { TurboNfc } from "turbo-nfc-dubu";
 
 const App = () => {
   const [isSupported, setIsSupported] = useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
-  const [nfcData, setNfcData] = useState('');
+  const [nfcData, setNfcData] = useState("");
   const [isReading, setIsReading] = useState(false);
 
   useEffect(() => {
@@ -13,20 +20,20 @@ const App = () => {
       try {
         const supported = await TurboNfc.isSupported();
         setIsSupported(supported);
-        
+
         if (supported) {
           const enabled = await TurboNfc.isEnabled();
           setIsEnabled(enabled);
         }
       } catch (error) {
-        console.error('NFC check error:', error);
+        console.error("NFC check error:", error);
       }
     };
 
     checkNfcSupport();
 
     // Set up NFC tag detection listener
-    TurboNfc.addListener('nfcTagDetected');
+    TurboNfc.addListener("nfcTagDetected");
 
     return () => {
       // Clean up listener when component unmounts
@@ -45,7 +52,7 @@ const App = () => {
         setNfcData(result.payload);
       }
     } catch (error) {
-      console.error('NFC reading error:', error);
+      console.error("NFC reading error:", error);
     } finally {
       setIsReading(false);
     }
@@ -58,7 +65,7 @@ const App = () => {
         setIsReading(false);
       }
     } catch (error) {
-      console.error('NFC stop error:', error);
+      console.error("NFC stop error:", error);
     }
   };
 
@@ -83,7 +90,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <View style={styles.content}>
         <Text style={styles.title}>NFC Tag Reader</Text>
-        
+
         {nfcData ? (
           <View style={styles.resultContainer}>
             <Text style={styles.resultTitle}>Tag Data:</Text>
@@ -95,12 +102,12 @@ const App = () => {
           </Text>
         )}
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={[styles.button, isReading && styles.buttonReading]}
           onPress={isReading ? stopReading : startReading}
         >
           <Text style={styles.buttonText}>
-            {isReading ? 'Stop Reading' : 'Start Reading'}
+            {isReading ? "Stop Reading" : "Start Reading"}
           </Text>
         </TouchableOpacity>
       </View>
@@ -111,64 +118,64 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: "#F5F5F5",
   },
   content: {
     flex: 1,
     padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    color: '#333',
+    color: "#333",
   },
   instructions: {
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 40,
-    color: '#666',
+    color: "#666",
   },
   button: {
-    backgroundColor: '#4285F4',
+    backgroundColor: "#4285F4",
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 8,
     elevation: 3,
   },
   buttonReading: {
-    backgroundColor: '#F44336',
+    backgroundColor: "#F44336",
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   warning: {
     fontSize: 18,
-    textAlign: 'center',
-    color: '#F44336',
+    textAlign: "center",
+    color: "#F44336",
     margin: 20,
   },
   resultContainer: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     borderRadius: 8,
-    width: '100%',
+    width: "100%",
     marginBottom: 40,
     elevation: 2,
   },
   resultTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
-    color: '#333',
+    color: "#333",
   },
   resultText: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
   },
 });
 

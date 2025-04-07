@@ -5,7 +5,7 @@ React Native TurboModule for NFC functionality
 ## Installation
 
 ```sh
-npm install turbo-nfc
+npm install turbo-nfc-dubu
 ```
 
 ## Requirements
@@ -23,33 +23,33 @@ npm install turbo-nfc
 ## Usage
 
 ```typescript
-import { TurboNfc } from 'turbo-nfc';
+import { TurboNfc } from "turbo-nfc-dubu";
 
 // Check if NFC is supported on the device
 const isSupported = await TurboNfc.isSupported();
 if (!isSupported) {
-  console.log('NFC is not supported on this device');
+  console.log("NFC is not supported on this device");
   return;
 }
 
 // Check if NFC is enabled
 const isEnabled = await TurboNfc.isEnabled();
 if (!isEnabled) {
-  console.log('NFC is not enabled on this device');
+  console.log("NFC is not enabled on this device");
   return;
 }
 
 // Add listener for NFC tag detection
-TurboNfc.addListener('nfcTagDetected');
+TurboNfc.addListener("nfcTagDetected");
 
 // Start reading NFC tags
 try {
   const result = await TurboNfc.startTagReading();
   if (result.success && result.payload) {
-    console.log('NFC tag content:', result.payload);
+    console.log("NFC tag content:", result.payload);
   }
 } catch (error) {
-  console.error('Error reading NFC tag:', error);
+  console.error("Error reading NFC tag:", error);
 }
 
 // Stop reading NFC tags
