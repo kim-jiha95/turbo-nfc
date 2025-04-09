@@ -1,6 +1,6 @@
 // NativeTurboNfc.ts
-import type { TurboModule } from 'react-native';
-import { TurboModuleRegistry } from 'react-native';
+import type { TurboModule } from "react-native";
+import { TurboModuleRegistry } from "react-native";
 
 export interface Spec extends TurboModule {
   isSupported(): Promise<boolean>;
@@ -8,7 +8,7 @@ export interface Spec extends TurboModule {
 
   startTagReading(): Promise<{
     success: boolean;
-    payload?: string;
+    message?: string;
   }>;
 
   addListener(eventName: string): void;
@@ -16,4 +16,4 @@ export interface Spec extends TurboModule {
   stopTagReading(): Promise<boolean>;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>('TurboNfc');
+export default TurboModuleRegistry.getEnforcing<Spec>("TurboNfc");

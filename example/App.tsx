@@ -33,7 +33,7 @@ const App = () => {
     checkNfcSupport();
 
     // Set up NFC tag detection listener
-    TurboNfc.addListener("nfcTagDetected");
+    TurboNfc.addListener("onTagDiscovered");
 
     return () => {
       // Clean up listener when component unmounts
@@ -48,12 +48,11 @@ const App = () => {
     try {
       setIsReading(true);
       const result = await TurboNfc.startTagReading();
-      if (result.success && result.payload) {
-        setNfcData(result.payload);
+      if (result.success) {
+        setNfcData(result.message || "Tag detected");
       }
     } catch (error) {
       console.error("NFC reading error:", error);
-    } finally {
       setIsReading(false);
     }
   };

@@ -14,6 +14,29 @@ npm install turbo-nfc-dubu
 - iOS 13+ (for CoreNFC support)
 - Android API level 24+ (Android 7.0+) for NFC support
 
+## iOS Setup
+
+1. Add the following to your Info.plist:
+
+```xml
+<key>NFCReaderUsageDescription</key>
+<string>NFC 태그를 읽기 위해 NFC 접근 권한이 필요합니다</string>
+
+<key>com.apple.developer.nfc.readersession.formats</key>
+<array>
+    <string>NDEF</string>
+    <string>TAG</string>
+</array>
+```
+
+2. Enable Near Field Communication Tag Reading capability in your Xcode project:
+   - Open your project in Xcode
+   - Select your target
+   - Go to "Signing & Capabilities"
+   - Click "+" and add "Near Field Communication Tag Reading"
+
+Note: Make sure your Apple Developer account has NFC capabilities enabled.
+
 ## Features
 
 - Check NFC capability and status
