@@ -1,6 +1,6 @@
 {
   "name": "turbo-nfc-dubu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Native TurboModule for NFC functionality",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
