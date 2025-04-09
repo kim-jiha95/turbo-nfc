@@ -14,7 +14,7 @@
     "ios",
     "cpp",
     "spec",
-    "turbo-nfc.podspec",
+    "TurboNfc.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
