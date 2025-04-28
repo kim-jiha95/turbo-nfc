@@ -37,6 +37,33 @@ npm install turbo-nfc-dubu
 
 Note: Make sure your Apple Developer account has NFC capabilities enabled.
 
+## Android Setup
+
+1. Add the following permissions and features to your `AndroidManifest.xml`:
+
+```xml
+<!-- Permissions -->
+<uses-permission android:name="android.permission.NFC" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+<uses-permission android:name="android.permission.USE_BIOMETRIC" />
+<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+<!-- Features -->
+<uses-feature android:name="android.hardware.nfc" android:required="true" />
+<uses-feature android:name="android.hardware.camera" android:required="false" />
+<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+<uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+<uses-feature android:name="android.hardware.microphone" android:required="false" />
+```
+
+Note: These permissions and features are required for the NFC functionality and related features to work properly on Android devices.
+
 ## Features
 
 - Check NFC capability and status
